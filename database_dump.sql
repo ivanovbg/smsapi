@@ -28,20 +28,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   CONSTRAINT `FK_messages_messages_status` FOREIGN KEY (`status_id`) REFERENCES `messages_status` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Dumping data for table smsapi.messages: ~10 rows (approximately)
-/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` (`id`, `message`, `status_id`, `created_at`, `price`) VALUES
-	(1, 'asd', 1, '0000-00-00 00:00:00', 0),
-	(2, 'sadсадасдасдадсадаsadсадасдасдадсадаsadсадасдасдадсадаsadсадасдасдадсадассссссссссссссссссссссссссссссссссссссссссссссссссссссссссссссс', 1, '2020-04-09 22:31:52', 0.54),
-	(3, 'sadсадасдасдадсадаsadсадасдасдадсадаsadсадасдасдадсадаsadсадасдасдадсадассссссссссссссссссссссссссссссссссссссссссссссссссссссссссссссс', 1, '2020-04-09 22:32:29', 0.54),
-	(4, 'sadсадасдасдадсадаsadсадасдасдадсадаsadсадасдасдадсадаsadсадасдасдадсадассссссссссссссссссссссссссссссссссссссссссссссссссссссссссссссс', 1, '2020-04-09 22:34:03', 0.54),
-	(5, 'sadсадасдасдадсадаsadсадасдасдадсадаsadсадасдасдадсадаsadсадасдасдадсадассссссссссссссссссссссссссссссссссссссссссссссссссссссссссссссс', 1, '2020-04-09 22:34:29', 0.54),
-	(6, 'Test Message', 3, '2020-04-09 23:33:15', 0.18),
-	(7, 'Test Message', 3, '2020-04-09 23:33:36', 0.18),
-	(8, 'Test Message', 3, '2020-04-09 23:33:49', 0.18),
-	(9, 'Test Message', 2, '2020-04-09 23:34:42', 0.18),
-	(10, 'Test Message', 3, '2020-04-09 23:35:23', 0.36);
-/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+-- Data exporting was unselected.
 
 -- Dumping structure for table smsapi.messages_numbers
 CREATE TABLE IF NOT EXISTS `messages_numbers` (
@@ -49,17 +36,11 @@ CREATE TABLE IF NOT EXISTS `messages_numbers` (
   `phone_number` varchar(255) COLLATE utf8_bin NOT NULL,
   `message_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_messages_numbers_messages` (`message_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  KEY `FK_messages_numbers_messages` (`message_id`),
+  CONSTRAINT `FK_messages_numbers_messages` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Dumping data for table smsapi.messages_numbers: 4 rows
-/*!40000 ALTER TABLE `messages_numbers` DISABLE KEYS */;
-INSERT INTO `messages_numbers` (`id`, `phone_number`, `message_id`) VALUES
-	(1, '088888888888', 9),
-	(2, '088888888888', 9),
-	(3, '088888888888', 10),
-	(4, '088888888888', 10);
-/*!40000 ALTER TABLE `messages_numbers` ENABLE KEYS */;
+-- Data exporting was unselected.
 
 -- Dumping structure for table smsapi.messages_status
 CREATE TABLE IF NOT EXISTS `messages_status` (
@@ -68,13 +49,7 @@ CREATE TABLE IF NOT EXISTS `messages_status` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Dumping data for table smsapi.messages_status: ~3 rows (approximately)
-/*!40000 ALTER TABLE `messages_status` DISABLE KEYS */;
-INSERT INTO `messages_status` (`id`, `title`) VALUES
-	(1, 'waiting'),
-	(2, 'sended'),
-	(3, 'canceled');
-/*!40000 ALTER TABLE `messages_status` ENABLE KEYS */;
+-- Data exporting was unselected.
 
 -- Dumping structure for table smsapi.tokens
 CREATE TABLE IF NOT EXISTS `tokens` (
@@ -86,11 +61,7 @@ CREATE TABLE IF NOT EXISTS `tokens` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Dumping data for table smsapi.tokens: ~0 rows (approximately)
-/*!40000 ALTER TABLE `tokens` DISABLE KEYS */;
-INSERT INTO `tokens` (`id`, `token`, `created_at`, `valid_to`, `is_active`) VALUES
-	(1, 'sada', '2020-04-09 20:15:53', '2020-04-12 22:15:55', 1);
-/*!40000 ALTER TABLE `tokens` ENABLE KEYS */;
+-- Data exporting was unselected.
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
