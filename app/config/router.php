@@ -4,7 +4,7 @@ $messages->setHandler('\App\Controllers\MessagesController', true);
 $messages->setPrefix('/sms');
 
 
-$messages->get('/send', 'sendAction');
+$messages->post('/send', 'sendAction');
 $messages->get('/status/{messageId:[0-9]+}' ,'statusAction');
 
 $app->mount($messages);

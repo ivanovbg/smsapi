@@ -6,6 +6,7 @@ abstract class AbstractHttpException extends \RuntimeException {
     const KEY_CODE      = 'error';
     const KEY_DETAILS   = 'validations_errors';
     const KEY_MESSAGE   = 'description';
+    const STATUS        = "status";
 
     protected $httpCode     = null;
     protected $httpMessage  = null;
@@ -28,8 +29,9 @@ abstract class AbstractHttpException extends \RuntimeException {
         }
 
         $this->error = [
+            self::STATUS        => false,
             self::KEY_CODE      => $code,
-            self::KEY_MESSAGE   => $message,
+            self::KEY_MESSAGE   => $message
         ];
 
         parent::__construct($this->httpMessage, $this->httpCode, $previous);
