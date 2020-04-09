@@ -9,8 +9,8 @@ class MessagesController extends Controller{
 
 
     public function sendAction(){
-        $messageText = $this->request->get('text');
-        $response = $this->messageService->send($messageText);
+        $messageData = $this->request->get();
+        $response = $this->messageService->send($messageData);
         return $response;
     }
 
