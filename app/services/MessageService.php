@@ -51,11 +51,11 @@ class MessageService{
                 throw $exception->_add($errors);
             }
 
-            $messagesNumber = \App\Helpers\Message::multipart_count($messageText);
+            $messagesCount = \App\Helpers\Message::multipart_count($messageText);
             $message = new Message();
             $message->status_id = rand(1,3);
             $message->message = $messageText;
-            $message->price = (float)($messagesNumber * self::MESSAGE_SINGLE_PRICE)*sizeof($messageNumbers);
+            $message->price = (float)($messagesCount * self::MESSAGE_SINGLE_PRICE)*sizeof($messageNumbers);
 
             if($message->save()){
                 ##save numbers

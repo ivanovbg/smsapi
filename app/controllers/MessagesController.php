@@ -5,7 +5,7 @@ use App\Models\Token;
 use Phalcon\Mvc\Controller;
 
 class MessagesController extends Controller{
-    
+
     public function sendAction(){
         $messageData = $this->request->get();
         $response = $this->messageService->send($messageData);
